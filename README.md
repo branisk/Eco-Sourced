@@ -56,3 +56,5 @@ classDiagram
     Categorization --> AWS_RDS
     AWS_RDS --> Query
 ```
+
+Contributions are very welcomed! Please submit a pull request, or feel free to reach out at branisk@protonmail.com.
