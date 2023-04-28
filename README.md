@@ -2,7 +2,7 @@
 A database, visualization, and overview of environmental research topics through available sources
 
 ## What is this?
-The goal for this project is to aggregate a large amount of Environmental research papers, and organize them for simplicity at understanding the domain of Environmental Sciences.  This will aid in answering questions such as:
+The goal for this project is to aggregate a large amount of Environmental research papers, and organize them for simplicity at understanding the topics and taxonomy of Environmental Sciences.  This will aid in answering questions such as:
 - What Environmental Science fields are being studied?
 - What Environmental Science research has already been done?
 - What Environmental Science topics can I contribute to?
