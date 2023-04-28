@@ -38,6 +38,7 @@ classDiagram
     }
     class Dask {
         Preprocessing
+        Exploratory Data Analysis
     }
     ArXiv_AWS_S3 -- PDF_ACCESS
     ArXiv_AWS_S3 -- SOURCE_ACCESS
@@ -52,6 +53,7 @@ classDiagram
     Dask --> HDBSCAN: Hierarchical Clustering
     HDBSCAN --> Vaex: Visualization
     HDBSCAN --> Categorization
+    HDBSCAN --> AWS_RDS
     Categorization --> Vaex: Visualization
     Categorization --> AWS_RDS
     AWS_RDS --> Query
