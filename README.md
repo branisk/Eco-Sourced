@@ -23,40 +23,53 @@ The goal for this project is to aggregate a large amount of Environmental resear
 
 ### Technical Flowchart
 ```mermaid
-
 classDiagram
     class ArXiv_AWS_S3 {
         5.6 TB
         Updates Monthly
     }
-    class PDF_ACCESS {
+    class PDF_Storage {
         2.7 TB
         +100 GB/month
     }
-    class SOURCE_ACCESS {
+    class Source_Storage {
         2.9 TB
     }
-    class Dask {
-        Preprocessing
-        Exploratory Data Analysis
+    class Preprocessing {
+        Dask
     }
-    ArXiv_AWS_S3 -- PDF_ACCESS
-    ArXiv_AWS_S3 -- SOURCE_ACCESS
-    PDF_ACCESS --> PyMuPDF: PDF to text
-    SOURCE_ACCESS --> text_from_TEX_EXTRACTOR
-    SOURCE_ACCESS --> other_EXTRACTOR
-    text_from_TEX_EXTRACTOR --> ECOSOURCED_S3
-    PyMuPDF --> ECOSOURCED_S3
-    other_EXTRACTOR --> ECOSOURCED_S3
-    ECOSOURCED_S3 --> Dask
-    Dask --> Vaex: Visualization
-    Dask --> HDBSCAN: Hierarchical Clustering
-    HDBSCAN --> Vaex: Visualization
-    HDBSCAN --> Categorization
-    HDBSCAN --> AWS_RDS
-    Categorization --> Vaex: Visualization
-    Categorization --> AWS_RDS
-    AWS_RDS --> Query
+    class Analysis {
+        Dask
+    }
+    class Visualization {
+        Vaex
+    }
+    class Clustering {
+        HDBSCAN
+    }
+    class Database {
+        AWS_RDS
+    }
+
+    ArXiv_AWS_S3 -- PDF_Storage: boto3
+    ArXiv_AWS_S3 -- Source_Storage: boto3
+    PDF_Storage --> PDF_to_Text: PyMuPDF
+    Source_Storage --> TEX_to_Text: TEX_EXTRACTOR
+    Source_Storage --> Other_Text: Other_EXTRACTOR
+    PDF_to_Text --> Processed_Data_S3
+    TEX_to_Text --> Processed_Data_S3
+    Other_Text --> Processed_Data_S3
+    Processed_Data_S3 --> Preprocessing
+    Preprocessing --> Analysis
+    Analysis --> Visualization
+    Analysis --> Clustering
+    Clustering --> Visualization
+    Clustering --> Categorization
+    Clustering --> Database
+    Categorization --> Visualization
+    Categorization --> Database
+    Database --> Query
+
 ```
 
 Contributions are very welcomed! Please submit a pull request, or feel free to reach out at branisk@protonmail.com.
