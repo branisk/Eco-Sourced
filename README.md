@@ -9,7 +9,7 @@ The goal for this project is to aggregate a large amount of Environmental resear
 - What Environmental Science topics need to be worked on?
 - What are the most densely worked on topics?
 
-### Relevent Papers:
+#### Relevent Papers:
 - Literature Clustering Algorithm: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9420566/
 - Hierarchical classification of Web content: https://dl.acm.org/doi/abs/10.1145/345508.345593
 - Hierarchical Classification across multiple domains: https://link.springer.com/article/10.1007/s10618-010-0175-9
